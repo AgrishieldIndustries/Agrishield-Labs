@@ -32,27 +32,6 @@ const CERTIFICATIONS = [
     file: "Udyam Registration Certificate- AIPL 17.01.26.pdf",
     color: "#1f7a3a",
   },
-  {
-    code: "IEC Certificate",
-    title: "Import Export Code (IEC)",
-    issuer: "DGFT – Ministry of Commerce, Government of India",
-    file: "IEC Certificate- Agrishield Inds Pvt Ltd.pdf",
-    color: "#0e6bc2",
-  },
-  {
-    code: "LEI Certificate",
-    title: "Legal Entity Identifier (LEI)",
-    issuer: "Global Legal Entity Identifier Foundation (GLEIF)",
-    file: "LEI Certificate 984500E77959CADB0309.pdf",
-    color: "#0e6bc2",
-  },
-  {
-    code: "MPCB Consent",
-    title: "Consent to Operate (MPCB)",
-    issuer: "Maharashtra Pollution Control Board (MPCB)",
-    file: "Consent to Operate MPCB Certificate AIPL.pdf",
-    color: "#16a34a",
-  },
 ];
 
 export default function Awards() {
@@ -82,7 +61,7 @@ export default function Awards() {
                 <CheckCircle className="w-4 h-4 text-primary" /> ISO 9001:2018 Certified
               </div>
               <div className="flex items-center gap-2 text-[13px] font-semibold text-gray-700 bg-gray-50 border border-gray-200 px-3 py-2 rounded-full">
-                <CheckCircle className="w-4 h-4 text-primary" /> MPCB Compliant
+                <CheckCircle className="w-4 h-4 text-primary" /> GST Registered
               </div>
               <div className="flex items-center gap-2 text-[13px] font-semibold text-gray-700 bg-gray-50 border border-gray-200 px-3 py-2 rounded-full">
                 <CheckCircle className="w-4 h-4 text-primary" /> MSME Registered
@@ -115,8 +94,8 @@ export default function Awards() {
           {[
             { value: "ISO 17025", label: "NABL Lab Accreditation" },
             { value: "ISO 9001", label: "Quality System Certified" },
-            { value: "MPCB", label: "Pollution Board Approved" },
-            { value: "Udyam", label: "Government Registered" },
+            { value: "GST", label: "Government Registered" },
+            { value: "Udyam", label: "MSME Registered" },
           ].map((stat, i) => (
             <motion.div
               key={stat.label}
