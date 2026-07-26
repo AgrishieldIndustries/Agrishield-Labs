@@ -1,1 +1,14 @@
-.vercel
+# Dependencies
+node_modules/
+
+# Production build
+dist/
+
+# Vercel configuration
+.vercel/
+
+# Editor files & OS metadata
+.DS_Store
+*.local
+.idea/
+.vscode/
