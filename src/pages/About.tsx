@@ -113,7 +113,7 @@ export default function About() {
             </div>
 
             <p className="text-[15.5px] md:text-[17px] text-gray-500 leading-relaxed mb-8 max-w-2xl">
-              Agrishield Labs Pvt. Ltd. is an ISO 9001 certified chemical testing laboratory (with NABL accreditation under process) located in the Kuruli Industrial Area (near Chakan, Pune, Maharashtra). We offer comprehensive qualitative and quantitative chemical testing, polymer and resin viscosity/solid analysis, environmental water and effluent analysis per MPCB norms, and agrochemical assays conforming to FCO-1985 and the Agrochemicals Act.
+              Agrishield Labs Pvt. Ltd. is an ISO 9001 certified chemical testing laboratory (with NABL accreditation under process) located in the Kuruli Industrial Area (near Chakan, Pune, Maharashtra). We offer a comprehensive suite of analytical services including sophisticated <strong>analytical chemistry</strong> (GC-MS, HPLC, FTIR, AAS), high-precision <strong>material testing</strong> of polymers, powders, and metals per ASTM and FCO standards, comprehensive <strong>environmental analysis</strong> (drinking water, effluents, and air quality per MPCB norms), agricultural <strong>soil testing</strong> for nutrient profiling, regulatory <strong>pharmaceutical testing</strong> (drug assay, purity, and stability per FDA/ICH guidelines), toxicological <strong>safety assessments</strong> of consumer and industrial materials, and bespoke <strong>custom analysis</strong> and method development for unique research challenges.
             </p>
 
             <Link href="/contact">
