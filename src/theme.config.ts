@@ -43,7 +43,7 @@ export interface CompanyConfig {
 export const themeConfig: CompanyConfig = {
   legalName: "Agrishield Labs Pvt. Ltd.",
   shortName: "Agrishield Labs",
-  tagline: "NABL Accredited & ISO 9001 Certified Analytical Testing Laboratory",
+  tagline: "NABL (Under Process) & ISO 9001 Certified Analytical Testing Laboratory",
   establishmentYear: 2025,
   contactEmail: "service@agrishieldlabs.com",
   secondaryEmail: "info.agrishield@gmail.com",
@@ -68,11 +68,11 @@ export const themeConfig: CompanyConfig = {
     linkedinUrl: "https://www.linkedin.com"
   },
   seo: {
-    metaTitle: "Agrishield Labs Pvt. Ltd. | NABL Accredited Chemical & Water Testing Laboratory – Pune, India",
-    metaDescription: "Agrishield Labs Pvt. Ltd. is a NABL-accredited, ISO 9001 certified laboratory in Pune, Maharashtra. We provide comprehensive chemical testing, water analysis (MPCB parameters), and agrochemical testing (FCO-1985).",
+    metaTitle: "Agrishield Labs Pvt. Ltd. | NABL (Under Process) Chemical & Water Testing Laboratory – Pune, India",
+    metaDescription: "Agrishield Labs Pvt. Ltd. is an ISO 9001 certified laboratory in Pune, Maharashtra (NABL under process). We provide comprehensive chemical testing, water analysis (MPCB parameters), and agrochemical testing (FCO-1985).",
     keywords: [
       "Chemical Testing Laboratory",
-      "NABL Accredited Lab",
+      "NABL (Under Process) Lab",
       "Water Testing Pune",
       "Silicone Testing",
       "Agrochemical Analysis",

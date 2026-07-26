@@ -8,7 +8,7 @@ import { Link } from "wouter";
 import { themeConfig } from "../theme.config";
 
 const LOGO_STRIP = [
-  { name: "NABL Accredited", icon: ShieldCheck, label: "ISO/IEC 17025 Scope" },
+  { name: "NABL (Under Process)", icon: ShieldCheck, label: "ISO/IEC 17025 Scope" },
   { name: "ISO 9001:2018", icon: Award, label: "Quality System Certified" },
   { name: "MPCB Approved", icon: FileText, label: "Consent to Operate" },
   { name: "ASTM & FCO Standards", icon: UserCheck, label: "Regulatory Compliance" }
@@ -113,7 +113,7 @@ export default function About() {
             </div>
 
             <p className="text-[15.5px] md:text-[17px] text-gray-500 leading-relaxed mb-8 max-w-2xl">
-              Agrishield Labs Pvt. Ltd. is a NABL-accredited, ISO 9001 certified chemical testing laboratory located in the Kuruli Industrial Area (near Chakan, Pune, Maharashtra). We offer comprehensive qualitative and quantitative chemical testing, polymer and resin viscosity/solid analysis, environmental water and effluent analysis per MPCB norms, and agrochemical assays conforming to FCO-1985 and the Agrochemicals Act.
+              Agrishield Labs Pvt. Ltd. is an ISO 9001 certified chemical testing laboratory (with NABL accreditation under process) located in the Kuruli Industrial Area (near Chakan, Pune, Maharashtra). We offer comprehensive qualitative and quantitative chemical testing, polymer and resin viscosity/solid analysis, environmental water and effluent analysis per MPCB norms, and agrochemical assays conforming to FCO-1985 and the Agrochemicals Act.
             </p>
 
             <Link href="/contact">
@@ -165,7 +165,7 @@ export default function About() {
               Reputation Built on Quality &amp; Scientific Credibility
             </h2>
              <p className="text-[15px] text-gray-500 leading-relaxed mb-8">
-              Established in 2025, Agrishield Labs Pvt. Ltd. operates as a specialized testing facility within the Agrishield® group of companies. The laboratory is NABL-accredited for chemical testing and ISO 9001:2018 certified, featuring state-of-the-art spectroscopy and chromatography instrumentation alongside MPCB environmental consent parameters.
+              Established in 2025, Agrishield Labs Pvt. Ltd. operates as a specialized testing facility within the Agrishield® group of companies. The laboratory features ISO 9001:2018 certification (with NABL accreditation under process) for chemical testing, featuring state-of-the-art spectroscopy and chromatography instrumentation alongside MPCB environmental consent parameters.
             </p>
             <Link href="/products">
               <span className="inline-flex items-center gap-1.5 text-[15px] font-bold text-primary hover:underline cursor-pointer group">
@@ -340,7 +340,7 @@ export default function About() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
               <div className="lg:col-span-7 flex flex-col justify-center">
                 <p className="text-[15.5px] text-gray-700 leading-relaxed font-medium mb-8">
-                  " I believe in reinforcing scientific credibility, precision, and regulatory compliance to support both agricultural development and industrial manufacturing. By establishing Agrishield Labs, we bridge the gap between chemical production and quality assurance, ensuring that every raw material and finished product matches strict national and international standards. Our NABL accredited lab operates under our core philosophy: 'Verify with Precision, Deliver with Trust.' "
+                  " I believe in reinforcing scientific credibility, precision, and regulatory compliance to support both agricultural development and industrial manufacturing. By establishing Agrishield Labs, we bridge the gap between chemical production and quality assurance, ensuring that every raw material and finished product matches strict national and international standards. Our laboratory (with NABL accreditation under process) operates under our core philosophy: 'Verify with Precision, Deliver with Trust.' "
                 </p>
                 <div>
                   <h3 className="text-[20px] md:text-[22px] font-extrabold text-[#1a3a6e] leading-tight mb-1">

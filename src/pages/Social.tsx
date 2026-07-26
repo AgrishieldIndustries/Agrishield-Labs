@@ -98,7 +98,7 @@ const FIELD_TRIALS = [
   { id: 6, src: "/community-photos/trial_6.jpeg", caption: "Standardized pH calibration for process water testing." },
   { id: 7, src: "/community-photos/trial_7.jpeg", caption: "Kjeldahl digestion setup for NPK fertilizer analysis." },
   { id: 8, src: "/community-photos/trial_8.jpeg", caption: "UV-Vis spectrophotometer validation of active dyes." },
-  { id: 9, src: "/community-photos/trial_9.jpeg", caption: "Testing report auditing under NABL scope." },
+  { id: 9, src: "/community-photos/trial_9.jpeg", caption: "Testing report auditing under NABL scope (under process)." },
   { id: 10, src: "/community-photos/trial_10.jpeg", caption: "Calibration check of digital micro-weighing balances." },
   { id: 11, src: "/community-photos/trial_11.jpeg", caption: "Flame photometer verification of potassium content." }
 ];
@@ -683,7 +683,7 @@ export default function Social() {
             Partner with Agrishield Labs
           </h2>
           <p className="text-white/75 text-[17px] max-w-lg mx-auto mb-10">
-            NABL-accredited, rapid turnaround, and highly competitive corporate analytical testing contracts.
+            NABL (under process), rapid turnaround, and highly competitive corporate analytical testing contracts.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a

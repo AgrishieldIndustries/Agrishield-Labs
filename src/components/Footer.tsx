@@ -17,7 +17,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-[13px] text-gray-500 leading-relaxed max-w-[220px]">
-              NABL accredited &amp; ISO certified chemical testing laboratory in Pune. Verifying quality and compliance to national and international standards.
+              NABL (Under Process) &amp; ISO certified chemical testing laboratory in Pune. Verifying quality and compliance to national and international standards.
             </p>
           </div>
 

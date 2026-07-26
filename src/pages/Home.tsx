@@ -46,7 +46,7 @@ export default function Home() {
     },
     testing: {
       title: "Accurate Testing & Assay",
-      desc: "Leveraging state-of-the-art GC-MS, AAS, and FTIR instrumentation under strict NABL scope conditions for high-fidelity compliance."
+      desc: "Leveraging state-of-the-art GC-MS, AAS, and FTIR instrumentation under strict NABL scope (under process) conditions for high-fidelity compliance."
     },
     compliance: {
       title: "Regulatory Compliance & Audits",
@@ -143,7 +143,7 @@ export default function Home() {
               <div className="mt-2">
                 <img 
                   src="/accreditations-logos.png" 
-                  alt="Accreditations & Approvals: FSSAI, NABL, APEDA, MOEFCC, ISO 14001 EMS, ISO 45001 OH&S, ISO 9001 QMS" 
+                  alt="Accreditations & Approvals: FSSAI, NABL (Under Process), APEDA, MOEFCC, ISO 14001 EMS, ISO 45001 OH&S, ISO 9001 QMS" 
                   className="w-full max-w-xl md:max-w-2xl h-auto object-contain"
                 />
               </div>

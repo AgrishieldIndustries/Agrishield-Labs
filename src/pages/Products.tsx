@@ -88,7 +88,7 @@ export default function Products() {
             transition={{ delay: 0.1 }}
             className="text-[15px] md:text-[17px] text-gray-500 leading-relaxed"
           >
-            NABL accredited and ISO certified laboratory delivering high-precision analytical solutions across major industries.
+            NABL (Under Process) and ISO certified laboratory delivering high-precision analytical solutions across major industries.
           </motion.p>
         </div>
       </div>

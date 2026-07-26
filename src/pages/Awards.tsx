@@ -5,8 +5,8 @@ import { themeConfig } from "../theme.config";
 
 const CERTIFICATIONS = [
   {
-    code: "NABL Scope",
-    title: "NABL Accreditation (ISO/IEC 17025)",
+    code: "NABL (Under Process)",
+    title: "NABL Accreditation (Under Process) (ISO/IEC 17025)",
     issuer: "National Accreditation Board for Testing and Calibration Laboratories",
     file: "iso-certificate.png",
     color: "#1f7a3a",
@@ -51,11 +51,11 @@ export default function Awards() {
               Certified, accredited &amp; trusted across every standard.
             </h1>
             <p className="text-[16px] text-gray-500 leading-relaxed mb-6">
-              Agrishield Labs Pvt. Ltd. holds full active NABL accreditation conforming to ISO/IEC 17025, alongside ISO 9001:2018 quality system certifications and pollution control board approvals required to audit, test, and certify industrial and agricultural chemical samples.
+              Agrishield Labs Pvt. Ltd. is in the process of obtaining full NABL accreditation conforming to ISO/IEC 17025, alongside active ISO 9001:2018 quality system certifications required to audit, test, and certify industrial and agricultural chemical samples.
             </p>
             <div className="flex flex-wrap items-center gap-3 mb-8">
               <div className="flex items-center gap-2 text-[13px] font-semibold text-gray-700 bg-gray-50 border border-gray-200 px-3 py-2 rounded-full">
-                <CheckCircle className="w-4 h-4 text-primary" /> NABL ISO/IEC 17025
+                <CheckCircle className="w-4 h-4 text-primary" /> NABL ISO/IEC 17025 (Under Process)
               </div>
               <div className="flex items-center gap-2 text-[13px] font-semibold text-gray-700 bg-gray-50 border border-gray-200 px-3 py-2 rounded-full">
                 <CheckCircle className="w-4 h-4 text-primary" /> ISO 9001:2018 Certified
@@ -92,7 +92,7 @@ export default function Awards() {
         {/* Stats Row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-20">
           {[
-            { value: "ISO 17025", label: "NABL Lab Accreditation" },
+            { value: "ISO 17025", label: "NABL Lab (Under Process)" },
             { value: "ISO 9001", label: "Quality System Certified" },
             { value: "GST", label: "Government Registered" },
             { value: "Udyam", label: "MSME Registered" },
