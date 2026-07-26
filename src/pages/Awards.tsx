@@ -119,7 +119,7 @@ export default function Awards() {
               Official Certificates &amp; Registrations
             </h2>
             <p className="text-[15px] text-gray-500 max-w-2xl">
-              Click "View PDF" to open and inspect any of Agrishield's official laboratory accreditation and registration documents.
+              Overview of Agrishield's official laboratory accreditation and registration credentials.
             </p>
           </div>
 
@@ -131,7 +131,7 @@ export default function Awards() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: (i % 3) * 0.08, duration: 0.4 }}
-                className="bg-white rounded-[16px] border border-gray-100 shadow-sm hover:shadow-lg hover:border-gray-200 transition-all duration-300 flex flex-col justify-between"
+                className="bg-white rounded-[16px] border border-gray-100 shadow-sm hover:shadow-lg hover:border-gray-200 transition-all duration-300 flex flex-col justify-between animate-fadeIn"
                 data-testid={`card-cert-${i}`}
               >
                 <div className="p-5">
@@ -147,17 +147,6 @@ export default function Awards() {
                   </div>
                   <h3 className="text-[16px] font-bold text-gray-900 mb-1 leading-snug">{cert.title}</h3>
                   <p className="text-[12.5px] font-semibold" style={{ color: cert.color }}>{cert.issuer}</p>
-                </div>
-
-                {/* Actions */}
-                <div className="px-5 pb-5 flex items-center gap-3 pt-3 border-t border-gray-50">
-                  <button
-                    onClick={() => setActivePdf(cert)}
-                    className="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white text-[13px] font-semibold px-4 py-2.5 rounded-full transition-colors cursor-pointer"
-                    data-testid={`btn-view-${i}`}
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" /> View PDF
-                  </button>
                 </div>
               </motion.div>
             ))}

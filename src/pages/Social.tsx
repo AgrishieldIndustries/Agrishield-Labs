@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { Play, X, Heart, MessageCircle, Youtube, Instagram, Users, Eye, TrendingUp, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import { Play, X, Heart, MessageCircle, Youtube, Instagram, Users, Eye, TrendingUp, ChevronLeft, ChevronRight, ExternalLink, Star } from "lucide-react";
+import { Link } from "wouter";
 import { themeConfig } from "../theme.config";
 
 /* ─── DATA ────────────────────────────────────────────────────── */
