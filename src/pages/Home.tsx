@@ -247,7 +247,7 @@ export default function Home() {
         {/* Folliage background layer */}
         <div className="absolute inset-0 opacity-10 mix-blend-overlay z-0">
           <img
-            src="https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?w=1200&h=800&fit=crop&q=80"
+            src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1200&h=800&fit=crop&q=80"
             alt="Blur plant pattern background"
             className="w-full h-full object-cover"
           />
@@ -296,7 +296,7 @@ export default function Home() {
               {/* Central Circle */}
               <div className="relative w-[180px] h-[180px] rounded-full border-4 border-white/20 p-2 bg-gray-900 shadow-2xl z-10 overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?w=400&h=400&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=400&fit=crop&q=80"
                   alt="Hands holding green sprout"
                   className="w-full h-full rounded-full object-cover"
                 />
