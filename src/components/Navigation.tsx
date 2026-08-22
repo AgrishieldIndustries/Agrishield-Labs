@@ -20,14 +20,13 @@ export default function Navigation() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-100">
-        <div className="max-w-[1280px] mx-auto px-6 h-[80px] flex items-center justify-between">
-          <Link href="/" className="flex items-center shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-lg" data-testid="link-home-logo" aria-label={`${themeConfig.shortName} – Home`}>
+      <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-100 shadow-sm transition-shadow duration-200">
+        <div className="max-w-[1280px] mx-auto px-6 h-[80px] flex items-center justify-between overflow-hidden">
+          <Link href="/" className="flex items-center shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-lg py-1" data-testid="link-home-logo" aria-label={`${themeConfig.shortName} – Home`}>
             <img
               src="/logo.png"
               alt={`${themeConfig.legalName} logo`}
-              className="w-auto object-contain"
-              style={{ height: 96, maxWidth: 210 }}
+              className="h-14 max-h-[56px] w-auto object-contain"
             />
           </Link>
 
@@ -94,7 +93,7 @@ export default function Navigation() {
       </header>
 
       {mobileOpen && (
-        <div id="mobile-nav" role="dialog" aria-modal="true" aria-label="Navigation menu" className="fixed inset-0 z-40 bg-white pt-[68px] overflow-y-auto md:hidden">
+        <div id="mobile-nav" role="dialog" aria-modal="true" aria-label="Navigation menu" className="fixed inset-0 z-40 bg-white pt-[80px] overflow-y-auto md:hidden">
           <div className="px-6 py-4 space-y-1">
             {tabs.map(({ href, label, Icon }) => (
               <Link
