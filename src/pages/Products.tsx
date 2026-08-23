@@ -39,7 +39,7 @@ const SERVICES = [
     id: "fertilizers-testing",
     title: "Fertilizers Testing",
     desc: "Assay and quality testing of chemical, organic, water-soluble, biostimulants, and micronutrient fertilizers in strict compliance with FCO 1985 (Fertilizer Control Order) specifications. Evaluation of active nutrient content, moisture, purity, biuret content, and heavy metal impurities.",
-    img: "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?w=800&h=500&fit=crop&q=85",
+    img: "/fertilizers-testing.jpg",
     Icon: TestTube,
     color: "from-green-600 to-emerald-700"
   },
