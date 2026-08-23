@@ -24,7 +24,7 @@ export default function Footer() {
           <div>
             <h3 className="text-[13px] font-semibold text-gray-900 mb-4 uppercase tracking-wider">Testing Services</h3>
             <ul className="space-y-3">
-              {["Chemical Testing", "Water & Effluents", "Agrochemical Assay", "Custom Analysis"].map((item) => (
+              {["Chemical Testing", "Fertilizers Testing", "Soil Testing", "Water & Effluents", "Agrochemical Assay", "Custom Analysis"].map((item) => (
                 <li key={item}>
                   <Link href="/products" className="text-[13px] text-gray-500 hover:text-gray-900 transition-colors">
                     {item}

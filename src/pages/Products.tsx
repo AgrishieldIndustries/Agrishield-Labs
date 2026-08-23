@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { FlaskConical, Layers, Globe2, ShieldAlert, Sparkles, Binary, ChevronRight, Sprout } from "lucide-react";
+import { FlaskConical, Layers, Globe2, ShieldAlert, Sparkles, Binary, ChevronRight, Sprout, TestTube } from "lucide-react";
 
 const SERVICES = [
   {
@@ -30,10 +30,18 @@ const SERVICES = [
   {
     id: "soil-testing",
     title: "Soil Testing",
-    desc: "Comprehensive physical and chemical analysis of agricultural and industrial soil. We assess pH levels, organic carbon, electrical conductivity, NPK macronutrients, micronutrients, and heavy metal contamination to optimize crop yields and evaluate soil safety.",
+    desc: "Comprehensive agricultural and industrial soil testing. We analyze pH levels, electrical conductivity (EC), organic carbon, major nutrients (N, P, K), secondary and micronutrients (Zn, Fe, Mn, Cu, B), cation exchange capacity (CEC), and heavy metal contamination to optimize soil health and maximize crop yields.",
     img: "/soil-testing.jpg",
     Icon: Sprout,
     color: "from-amber-600 to-emerald-700"
+  },
+  {
+    id: "fertilizers-testing",
+    title: "Fertilizers Testing",
+    desc: "Assay and quality testing of chemical, organic, water-soluble, biostimulants, and micronutrient fertilizers in strict compliance with FCO 1985 (Fertilizer Control Order) specifications. Evaluation of active nutrient content, moisture, purity, biuret content, and heavy metal impurities.",
+    img: "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?w=800&h=500&fit=crop&q=85",
+    Icon: TestTube,
+    color: "from-green-600 to-emerald-700"
   },
   {
     id: "pharmaceutical-testing",
