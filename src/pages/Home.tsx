@@ -1,30 +1,50 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "wouter";
-import { motion } from "framer-motion";
-import { ChevronRight, FlaskConical, IndianRupee, Presentation } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronRight, ChevronLeft, FlaskConical, IndianRupee, Presentation } from "lucide-react";
 
 /* ─── DATA ─────────────────────────────────────────────────── */
 
-
-
-const MAIN_SERVICES = [
+const ALL_SERVICES = [
+  {
+    title: "Analytical Chemistry",
+    desc: "Comprehensive chemical composition analysis using state-of-the-art GC-MS, HPLC, FTIR, and AAS instrumentation.",
+    img: "/analytical-chemistry.png"
+  },
+  {
+    title: "Material Testing",
+    desc: "Physical & chemical evaluation of raw materials, polymers, powders, metals & composites per ASTM standards.",
+    img: "/material-testing.png"
+  },
   {
     title: "Environmental Analysis",
-    desc: "Comprehensive water quality testing",
-    img: "/environmental-analysis.jpg",
-    highlight: false
+    desc: "Comprehensive water quality testing, effluent water, DM water, drinking water, and air & soil monitoring.",
+    img: "/environmental-analysis.jpg"
+  },
+  {
+    title: "Soil Testing",
+    desc: "Comprehensive agricultural & industrial soil analysis for pH, EC, NPK nutrients, micronutrients & safety.",
+    img: "/soil-testing.jpg"
+  },
+  {
+    title: "Fertilizers Testing",
+    desc: "Assay and quality testing of chemical, organic, water-soluble, biostimulants & micronutrients per FCO 1985.",
+    img: "/fertilizers-testing.jpg"
   },
   {
     title: "Pharmaceutical Testing",
-    desc: "Drug analysis, impurity profiling, and stability testing",
-    img: "/pharma-testing.jpg",
-    highlight: true
+    desc: "Drug analysis, impurity profiling, and stability testing for compounds following FDA and ICH guidelines.",
+    img: "/pharma-testing.jpg"
   },
   {
     title: "Safety Assessment",
-    desc: "Toxicological evaluation and safety testing",
-    img: "/safety-assessment.png",
-    highlight: false
+    desc: "Toxicological evaluation and safety testing for consumer products, chemicals, and industrial materials.",
+    img: "/safety-assessment.png"
+  },
+  {
+    title: "Custom Analysis",
+    desc: "Tailored testing solutions and method development for unique analytical challenges and research requirements.",
+    img: "/custom-analysis.png"
   }
 ];
 
@@ -38,6 +58,31 @@ const EXPERTISE_BULLETS = [
 
 export default function Home() {
   const [activeOrb, setActiveOrb] = useState<"cost" | "testing" | "compliance">("cost");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % ALL_SERVICES.length);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + ALL_SERVICES.length) % ALL_SERVICES.length);
+  }, []);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [isPaused, nextSlide]);
+
+  // Helper to get 3 visible cards starting from currentIndex
+  const visibleServices = [
+    ALL_SERVICES[currentIndex],
+    ALL_SERVICES[(currentIndex + 1) % ALL_SERVICES.length],
+    ALL_SERVICES[(currentIndex + 2) % ALL_SERVICES.length]
+  ];
 
   const orbitDetails = {
     cost: {
@@ -169,7 +214,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── MAIN SERVICES ──────────────────────────────────────── */}
+      {/* ── MAIN SERVICES (AUTO-ROTATING CAROUSEL) ────────────────── */}
       <section className="px-6 py-20 bg-gray-50/50 border-t border-b border-gray-100">
         <div className="max-w-[1280px] mx-auto text-center mb-16">
           <motion.h2
@@ -191,54 +236,99 @@ export default function Home() {
           </motion.p>
         </div>
 
-        {/* Arch Cards Row */}
-        <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-          {MAIN_SERVICES.map((service, idx) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className={`flex flex-col justify-between rounded-[40px] p-6 shadow-lg border transition-all duration-500 hover:shadow-2xl ${
-                service.highlight
-                  ? "bg-slate-900 text-white border-slate-950 scale-105 z-10"
-                  : "bg-white text-gray-900 border-gray-150"
-              }`}
-              data-testid={`card-service-arch-${idx}`}
-            >
-              <div>
-                {/* Arch Top Shaped Image container */}
-                <div className="relative aspect-[4/5] rounded-t-full overflow-hidden mb-6 shadow-inner">
-                  <img
-                    src={service.img}
-                    alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10" />
-                </div>
-                <h3 className={`text-[20px] font-bold text-center mb-2 tracking-tight ${service.highlight ? "text-white" : "text-gray-900"}`}>
-                  {service.title}
-                </h3>
-                <p className={`text-[13px] text-center leading-relaxed mb-6 ${service.highlight ? "text-gray-300" : "text-gray-500"}`}>
-                  {service.desc}
-                </p>
-              </div>
+        {/* Carousel Container */}
+        <div 
+          className="max-w-[1180px] mx-auto relative px-4 md:px-12"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition-all duration-300 focus:outline-none"
+            aria-label="Previous service"
+            data-testid="btn-carousel-prev"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
 
-              <div className="text-center">
-                <Link
-                  href="/products"
-                  className={`inline-flex items-center gap-1.5 font-bold text-[14px] px-6 py-2.5 rounded-full transition-all duration-300 ${
-                    service.highlight
-                      ? "bg-white hover:bg-gray-150 text-slate-900"
-                      : "bg-gray-900 hover:bg-gray-800 text-white"
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition-all duration-300 focus:outline-none"
+            aria-label="Next service"
+            data-testid="btn-carousel-next"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          {/* Cards Grid / Carousel View */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch min-h-[460px]">
+            {visibleServices.map((service, idx) => {
+              const isHighlight = idx === 1; // Middle card is highlighted
+              return (
+                <motion.div
+                  key={`${service.title}-${currentIndex}-${idx}`}
+                  initial={{ opacity: 0, scale: 0.95, y: 15 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ duration: 0.45 }}
+                  className={`flex flex-col justify-between rounded-[40px] p-6 shadow-lg border transition-all duration-500 hover:shadow-2xl ${
+                    isHighlight
+                      ? "bg-slate-900 text-white border-slate-950 scale-105 z-10"
+                      : "bg-white text-gray-900 border-gray-150"
                   }`}
+                  data-testid={`card-service-carousel-${idx}`}
                 >
-                  Read More <ChevronRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </motion.div>
-          ))}
+                  <div>
+                    {/* Arch Top Shaped Image container */}
+                    <div className="relative aspect-[4/5] rounded-t-full overflow-hidden mb-6 shadow-inner">
+                      <img
+                        src={service.img}
+                        alt={service.title}
+                        className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10" />
+                    </div>
+                    <h3 className={`text-[20px] font-bold text-center mb-2 tracking-tight ${isHighlight ? "text-white" : "text-gray-900"}`}>
+                      {service.title}
+                    </h3>
+                    <p className={`text-[13px] text-center leading-relaxed mb-6 ${isHighlight ? "text-gray-300" : "text-gray-500"}`}>
+                      {service.desc}
+                    </p>
+                  </div>
+
+                  <div className="text-center">
+                    <Link
+                      href="/products"
+                      className={`inline-flex items-center gap-1.5 font-bold text-[14px] px-6 py-2.5 rounded-full transition-all duration-300 ${
+                        isHighlight
+                          ? "bg-white hover:bg-gray-150 text-slate-900"
+                          : "bg-gray-900 hover:bg-gray-800 text-white"
+                      }`}
+                    >
+                      Read More <ChevronRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Indicator Dots */}
+          <div className="flex items-center justify-center gap-2 mt-10">
+            {ALL_SERVICES.map((s, index) => (
+              <button
+                key={s.title}
+                onClick={() => setCurrentIndex(index)}
+                aria-label={`Go to slide ${index + 1}: ${s.title}`}
+                className={`transition-all duration-300 rounded-full ${
+                  currentIndex === index
+                    ? "w-8 h-2.5 bg-[#1f7a3a]"
+                    : "w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400"
+                }`}
+                data-testid={`dot-carousel-${index}`}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
