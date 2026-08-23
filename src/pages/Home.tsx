@@ -214,9 +214,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── MAIN SERVICES (AUTO-ROTATING CAROUSEL) ────────────────── */}
-      <section className="px-6 py-20 bg-gray-50/50 border-t border-b border-gray-100">
-        <div className="max-w-[1280px] mx-auto text-center mb-16">
+      {/* ── MAIN SERVICES (CONTINUOUS MOVING CAROUSEL) ────────────────── */}
+      <section className="py-20 bg-gray-50/50 border-t border-b border-gray-100 overflow-hidden">
+        <div className="max-w-[1280px] mx-auto text-center mb-16 px-6">
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -236,99 +236,64 @@ export default function Home() {
           </motion.p>
         </div>
 
-        {/* Carousel Container */}
+        {/* Continuous Moving Marquee Container */}
         <div 
-          className="max-w-[1180px] mx-auto relative px-4 md:px-12"
+          className="relative w-full overflow-hidden"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Navigation Arrows */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition-all duration-300 focus:outline-none"
-            aria-label="Previous service"
-            data-testid="btn-carousel-prev"
+          {/* Gradient Edge Blurs */}
+          <div className="absolute top-0 bottom-0 left-0 w-12 md:w-32 bg-gradient-to-r from-gray-50/90 to-transparent z-20 pointer-events-none" />
+          <div className="absolute top-0 bottom-0 right-0 w-12 md:w-32 bg-gradient-to-l from-gray-50/90 to-transparent z-20 pointer-events-none" />
+
+          {/* Infinite Linear Slider Track */}
+          <motion.div
+            className="flex gap-6 md:gap-8 w-max px-4"
+            animate={isPaused ? {} : { x: ["0%", "-33.333%"] }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 25,
+                ease: "linear",
+              },
+            }}
           >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-
-          <button
-            onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition-all duration-300 focus:outline-none"
-            aria-label="Next service"
-            data-testid="btn-carousel-next"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-
-          {/* Cards Grid / Carousel View */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch min-h-[460px]">
-            {visibleServices.map((service, idx) => {
-              const isHighlight = idx === 1; // Middle card is highlighted
-              return (
-                <motion.div
-                  key={`${service.title}-${currentIndex}-${idx}`}
-                  initial={{ opacity: 0, scale: 0.95, y: 15 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ duration: 0.45 }}
-                  className={`flex flex-col justify-between rounded-[40px] p-6 shadow-lg border transition-all duration-500 hover:shadow-2xl ${
-                    isHighlight
-                      ? "bg-slate-900 text-white border-slate-950 scale-105 z-10"
-                      : "bg-white text-gray-900 border-gray-150"
-                  }`}
-                  data-testid={`card-service-carousel-${idx}`}
-                >
-                  <div>
-                    {/* Arch Top Shaped Image container */}
-                    <div className="relative aspect-[4/5] rounded-t-full overflow-hidden mb-6 shadow-inner">
-                      <img
-                        src={service.img}
-                        alt={service.title}
-                        className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10" />
-                    </div>
-                    <h3 className={`text-[20px] font-bold text-center mb-2 tracking-tight ${isHighlight ? "text-white" : "text-gray-900"}`}>
-                      {service.title}
-                    </h3>
-                    <p className={`text-[13px] text-center leading-relaxed mb-6 ${isHighlight ? "text-gray-300" : "text-gray-500"}`}>
-                      {service.desc}
-                    </p>
+            {[...ALL_SERVICES, ...ALL_SERVICES, ...ALL_SERVICES].map((service, idx) => (
+              <div
+                key={`${service.title}-${idx}`}
+                className="w-[280px] sm:w-[320px] md:w-[350px] shrink-0 flex flex-col justify-between rounded-[40px] p-6 shadow-lg border border-gray-150 bg-white text-gray-900 transition-all duration-300 hover:shadow-2xl hover:border-emerald-500/30 hover:-translate-y-1.5 group"
+                data-testid={`card-service-marquee-${idx}`}
+              >
+                <div>
+                  {/* Arch Top Shaped Image Container */}
+                  <div className="relative aspect-[4/5] rounded-t-full overflow-hidden mb-6 shadow-inner bg-gray-100">
+                    <img
+                      src={service.img}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10" />
                   </div>
+                  <h3 className="text-[20px] font-bold text-center mb-2 tracking-tight text-gray-900 group-hover:text-[#1f7a3a] transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-[13px] text-center leading-relaxed mb-6 text-gray-500">
+                    {service.desc}
+                  </p>
+                </div>
 
-                  <div className="text-center">
-                    <Link
-                      href="/products"
-                      className={`inline-flex items-center gap-1.5 font-bold text-[14px] px-6 py-2.5 rounded-full transition-all duration-300 ${
-                        isHighlight
-                          ? "bg-white hover:bg-gray-150 text-slate-900"
-                          : "bg-gray-900 hover:bg-gray-800 text-white"
-                      }`}
-                    >
-                      Read More <ChevronRight className="w-4 h-4" />
-                    </Link>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {/* Indicator Dots */}
-          <div className="flex items-center justify-center gap-2 mt-10">
-            {ALL_SERVICES.map((s, index) => (
-              <button
-                key={s.title}
-                onClick={() => setCurrentIndex(index)}
-                aria-label={`Go to slide ${index + 1}: ${s.title}`}
-                className={`transition-all duration-300 rounded-full ${
-                  currentIndex === index
-                    ? "w-8 h-2.5 bg-[#1f7a3a]"
-                    : "w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400"
-                }`}
-                data-testid={`dot-carousel-${index}`}
-              />
+                <div className="text-center">
+                  <Link
+                    href="/products"
+                    className="inline-flex items-center gap-1.5 font-bold text-[14px] px-6 py-2.5 rounded-full transition-all duration-300 bg-gray-900 group-hover:bg-[#1f7a3a] text-white shadow-sm"
+                  >
+                    Read More <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
