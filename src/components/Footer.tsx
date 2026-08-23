@@ -67,7 +67,8 @@ export default function Footer() {
                 <span className="text-[12.5px] text-gray-500 leading-relaxed">
                   {themeConfig.address.line1}, {themeConfig.address.line2},<br />
                   {themeConfig.address.highway},<br />
-                  {themeConfig.address.region} – {themeConfig.address.postalCode}
+                  {themeConfig.address.region} – {themeConfig.address.postalCode}<br />
+                  Maharashtra, {themeConfig.address.country}
                 </span>
               </li>
 
